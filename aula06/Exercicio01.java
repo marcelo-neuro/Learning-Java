@@ -1,32 +1,32 @@
+package fiap;
+
 import java.util.Scanner;
 
 public class Exercicio01 {
+
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		String[] meses = {"Jan", "Fev", "Mar", "Abr", "Mai", "Jun",
-						"Jul", "Ago", "Set", "Out", "Nov", "Dez"};
-		double[] temps = new double[12];
+		String[] nomes = new String[10];
+		String nomeBusca = "";
 		
-		int iMaior = 0, iMenor = 0;
-		
-		for (int i = 0 ; i < 12 ; i++) {
-			System.out.print("Digite a temperatura máxima do mês "
-					+ meses[i] + ": ");
-			temps[i] = sc.nextDouble();
+		for(int cont = 0; cont < nomes.length ; cont++) {
 			
-			if (temps[i] > temps[iMaior]) {
-				iMaior = i;
-			} else if(temps[i] < temps[iMenor]){
-				iMenor = i;
-			}
+			System.out.print("Digite o " + (cont + 1) + "Âº nome: ");
+			nomes[cont] = sc.next();
+				
 		}
 		
-		System.out.println("Mês com maior temperatura: " + meses[iMaior]
-				+ "; Temperatura: " + temps[iMaior]);
+		System.out.println("Digite um nome que deseja buscar: ");
+		nomeBusca = sc.next();
 		
-		System.out.println("Mês com menor temperatura: " + meses[iMenor]
-				+ "; Temperatura: " + temps[iMenor]);
+		for (int cont = 0 ; cont < nomes.length ; cont++) {
+			if (nomes[cont].equalsIgnoreCase(nomeBusca)) {
+				System.out.println("Achei - posiÃ§Ã£o: " + (cont+ 1));
+			} else {
+				System.out.println("NÃ£o Achei");
+			}
+		}
 	}
 }

@@ -1,3 +1,5 @@
+package fiap;
+
 import java.util.Scanner;
 
 public class Exercicio02 {
@@ -7,18 +9,24 @@ public class Exercicio02 {
 		
 		String[] nomes = new String[10];
 		String nomeBusca = "";
+		boolean achou = false;
 		
-		for (int cont = 0 ; cont < nomes.length ; cont++) {
-			System.out.print("Digite o " + cont + " nome: ");
+		for(int cont = 0; cont < nomes.length ; cont++) {
+			
+			System.out.print("Digite o " + (cont + 1) + "º nome: ");
 			nomes[cont] = sc.next();
+				
 		}
 		
-		System.out.print("Digite o nome que deseja buscar: ");
+		System.out.println("Digite um nome que deseja buscar: ");
 		nomeBusca = sc.next();
 		
 		for (int cont = 0 ; cont < nomes.length ; cont++) {
-			System.out.println(nomes[cont].equalsIgnoreCase(nomeBusca) ? "Achou na casa" + cont : "N�o achou!");
+			if (nomes[cont].equalsIgnoreCase(nomeBusca)) {
+				achou = true;
+			}
 		}
 		
+		System.out.println(achou ? "Achei" : "Não Achei.");
 	}
 }
