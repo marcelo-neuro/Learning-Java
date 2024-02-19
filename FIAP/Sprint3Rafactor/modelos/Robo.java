@@ -89,6 +89,6 @@ public class Robo implements Comparable<Robo>{
         } else if (ePontuacao > oPontuacao) {
             return -1;
         }
-        return (this.getNota() >= outro.getNota()) ? 1 : 0;
+        return (this.getNota() >= outro.getNota()) ? 1 : -1;
     }
 }

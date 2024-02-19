@@ -1,6 +1,7 @@
 package projeto.modelos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Competicao {
@@ -15,6 +16,7 @@ public class Competicao {
         setQtdEquipes();
         setQtdCombates();
         setEquipes();
+        
     }
 
     public int getQtdEquipes() {
@@ -79,5 +81,16 @@ public class Competicao {
             }
         }
         return false;
+    }
+    
+    private void defnirResultados() {
+    	System.out.println("");
+    	for(int e = 0; e < equipes.size(); e++) {
+    		System.out.println("Resultados da equipe do robô nº " +
+    				equipes.get(e).getNumero() + ": ");
+    		for(int l = 0; l < this.getQtdCombates(); l++) {
+    			//parei aq
+    		}
+    	}
     }
 }
