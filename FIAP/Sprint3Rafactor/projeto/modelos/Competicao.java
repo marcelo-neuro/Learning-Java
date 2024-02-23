@@ -16,7 +16,8 @@ public class Competicao {
         setQtdEquipes();
         setQtdCombates();
         setEquipes();
-        
+        definirResultados();
+        exibirPlacar();
     }
 
     public int getQtdEquipes() {
@@ -83,14 +84,47 @@ public class Competicao {
         return false;
     }
     
-    private void defnirResultados() {
+    private void definirResultados() {
     	System.out.println("");
     	for(int e = 0; e < equipes.size(); e++) {
     		System.out.println("Resultados da equipe do robô nº " +
     				equipes.get(e).getNumero() + ": ");
     		for(int l = 0; l < this.getQtdCombates(); l++) {
-    			//parei aq
+    			char resultado;
+    			System.out.println("Rodada nº" + (l + 1) + "");
+    			System.out.print("Informe o resultado dessa rodada "
+    					+ "[V: vitória ; D: derrota ; E: empate]: ");
+    			resultado = sc.next().toUpperCase().charAt(0);
+    			
+    			while((resultado != 'V') && (resultado != 'D') && (resultado != 'E')) {
+    				System.out.print("Informe o resultado dessa rodada corretamente "
+        					+ "[V: vitória ; D: derrota ; E: empate]: ");
+        			resultado = sc.next().toUpperCase().charAt(0);
+    			}
+    			
+    			switch(resultado) {
+    			case 'V':
+    				equipes.get(e).vencer();
+    				break;
+    			
+    			case 'D':
+    				equipes.get(e).perder();
+    				break;
+    				
+    			case 'E':
+    				equipes.get(e).empatar();
+    			}
     		}
+    		System.out.println();
+    	}
+    }
+    
+    private void exibirPlacar() {
+    	Collections.sort(equipes);
+    	
+    	System.out.println("Placar final");
+    	for(int e = 0; e < equipes.size(); e++) {
+    		System.out.println((e + 1) + " " + equipes.get(e));
     	}
     }
 }

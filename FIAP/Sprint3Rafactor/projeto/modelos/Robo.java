@@ -76,7 +76,8 @@ public class Robo implements Comparable<Robo>{
 
     public String toString() {
         return this.getClass().getSimpleName() + ": " + this.getNumero() + "(V: " + this.getVitorias() + "; D: "
-                + this.getDerrotas() + "; E: " + this.getEmpates() + ")";
+                + this.getDerrotas() + "; E: " + this.getEmpates() + ") - " 
+        		+ ((this.getVitorias() * 5) + (this.getEmpates() * 3));
     }
 
     @Override
@@ -89,6 +90,6 @@ public class Robo implements Comparable<Robo>{
         } else if (ePontuacao > oPontuacao) {
             return -1;
         }
-        return (this.getNota() >= outro.getNota()) ? 1 : -1;
+        return (this.getNota() >= outro.getNota()) ? -1 : 1;
     }
 }
